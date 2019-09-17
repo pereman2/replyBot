@@ -1,3 +1,8 @@
+import requests
+import tweepy
+import time
+import string
+import random
 
 #api_key = {api_key
 #api_secret = {api_secret}
@@ -30,7 +35,14 @@ def send(msg):
         api.update_status(payload, robo_id)
     except tweepy.error.TweepError:
         print('nope')
-        
+
+def send_null(msg):
+	payload = msg
+	try:
+		api = tweepy.API(auth)
+		api.update_status(payload)
+	except tweepy.error.TweepError:
+		print('nope')
 
 while(True):
     size = random.randint(20,200)
